@@ -1,24 +1,32 @@
+import 'package:employee/pages/splash.dart';
 import 'package:flutter/material.dart';
+import 'pages/auth/auth_page.dart';
+import 'theme/themeData.dart';
 
 void main() => runApp(const MyApp());
 
+///Clase myApp principal de ejecución de aplicación
+///@Extends: StalessWidget
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(useMaterial3: true),
       debugShowCheckedModeBanner: false,
+      theme: lightColorScheme,
+      darkTheme: darkColorScheme,
+      themeMode: ThemeMode.light,
       title: 'Material App',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
-        ),
-        body: const Center(
-          child: Text('Hello World'),
-        ),
-      ),
+      home: const Home(),
     );
+  }
+}
+
+class Home extends StatelessWidget {
+  const Home({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return SplashScreen();
   }
 }
