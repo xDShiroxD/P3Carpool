@@ -19,8 +19,8 @@ class _selectorPaisState extends State<selectorPais> {
           ),
           borderRadius: BorderRadius.circular(12),
         ),
-        child: Padding(
-            padding: const EdgeInsets.only(left: 20), child: const AutoField()),
+        child: const Padding(
+            padding: EdgeInsets.only(left: 20), child: AutoField()),
       ),
     );
   }

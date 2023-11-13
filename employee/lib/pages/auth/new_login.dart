@@ -1,3 +1,4 @@
+// ignore_for_file: file_names
 import '../../widgets/login_form.dart';
 import '../../widgets/page_tittle.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,7 @@ class NewLogin extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
-                  PageTittle(titulo: "Iniciar\nSesión"),
+                  const PageTittle(titulo: "Iniciar\nSesión"),
                   const LoginForm(),
                   LoginButton(this),
                 ],

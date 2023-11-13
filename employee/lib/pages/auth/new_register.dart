@@ -27,7 +27,7 @@ class NewRegister extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
-                  PageTittle(titulo: "Crear\nCuenta"),
+                  const PageTittle(titulo: "Crear\nCuenta"),
                   const RegisterForm(),
                   RegisterButton(this),
                 ],

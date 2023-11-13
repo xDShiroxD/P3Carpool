@@ -113,7 +113,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ),
                 const SizedBox(height: 10),
-                selectorPais(),
+                const selectorPais(),
                 const SizedBox(height: 25),
                 //singin
                 Padding(

@@ -4,8 +4,9 @@ import 'theme/themeData.dart';
 
 void main() => runApp(const MyApp());
 
-///Clase myApp principal de ejecución de aplicación
-///@Extends: StalessWidget
+/// Clase myApp principal de ejecución de aplicación
+/// @Extends: StalessWidget
+///
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -26,6 +27,6 @@ class Home extends StatelessWidget {
   const Home({super.key});
   @override
   Widget build(BuildContext context) {
-    return SplashScreen();
+    return const SplashScreen();
   }
 }
