@@ -7,7 +7,7 @@ class PageTittle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.28,
+      height: MediaQuery.of(context).size.height * 0.15,
       width: MediaQuery.of(context).size.width,
       child: Row(
         mainAxisSize: MainAxisSize.max,
@@ -16,7 +16,7 @@ class PageTittle extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(
-                vertical: MediaQuery.of(context).size.height * 0.03),
+                vertical: MediaQuery.of(context).size.height * 0.01),
             child: Text(
               titulo,
               style: TextStyle(
