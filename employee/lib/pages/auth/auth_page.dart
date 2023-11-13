@@ -1,8 +1,9 @@
+import 'package:employee/pages/auth/new_login.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../content/home.dart';
-import 'login_page.dart';
+//import 'login_page.dart';
 import 'register_page.dart';
 
 class AuthPage extends StatefulWidget {
@@ -24,7 +25,7 @@ class _AuthPageState extends State<AuthPage> {
 
   Future<void> loginStatus() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs?.setBool("isLoggedIn", true);
+    prefs.setBool("isLoggedIn", true);
     // ignore: use_build_context_synchronously
     Navigator.pushReplacement(
       context,
@@ -35,7 +36,7 @@ class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context) {
     if (showLoginPage) {
-      return LoginPage(this);
+      return NewLogin(this);
     } else {
       return RegisterPage(this);
     }

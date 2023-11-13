@@ -1,4 +1,4 @@
-import 'package:employee/widgets/selectorPais.dart';
+import 'package:employee/widgets/selector_pais.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable

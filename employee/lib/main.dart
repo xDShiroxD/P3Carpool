@@ -1,6 +1,5 @@
 import 'package:employee/pages/splash.dart';
 import 'package:flutter/material.dart';
-import 'pages/auth/auth_page.dart';
 import 'theme/themeData.dart';
 
 void main() => runApp(const MyApp());

@@ -1,6 +1,3 @@
-import 'dart:async';
-
-import 'package:employee/main.dart';
 import 'package:employee/pages/auth/auth_page.dart';
 import 'package:employee/pages/content/home.dart';
 import 'package:flutter/material.dart';
@@ -40,9 +37,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void startTimer() {
-    Timer(Duration(seconds: 1), () {
-      navigateUser(); //It will redirect  after 3 seconds
-    });
+    navigateUser(); //It will redirect  after 3 seconds
   }
 
   void navigateUser() async {
