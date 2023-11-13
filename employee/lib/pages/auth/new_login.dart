@@ -1,7 +1,7 @@
-import 'package:employee/widgets/pageTittle.dart';
+import '../../widgets/page_tittle.dart';
 import 'package:flutter/material.dart';
 
-import '../../widgets/LoginButton.dart';
+import '../../widgets/login_button.dart';
 
 // ignore: must_be_immutable
 class NewLogin extends StatelessWidget {
