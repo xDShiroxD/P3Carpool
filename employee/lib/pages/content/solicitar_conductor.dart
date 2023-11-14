@@ -2,6 +2,8 @@ import 'package:employee/widgets/driver_card.dart';
 import 'package:employee/widgets/origen_destino.dart';
 import 'package:employee/widgets/page_tittle.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class SollicitarConductor extends StatefulWidget {
   const SollicitarConductor({super.key});
@@ -105,22 +107,15 @@ class _SollicitarConductorState extends State<SollicitarConductor> {
         ready = !ready;
       });
     } else {
-      showDialog<String>(
-        context: context,
-        builder: (BuildContext context) => AlertDialog(
-          title: const Text('AlertDialog Title'),
-          content: const Text('AlertDialog description'),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () => Navigator.pop(context, 'Cancel'),
-              child: const Text('Cancel'),
-            ),
-            TextButton(
-              onPressed: () => Navigator.pop(context, 'OK'),
-              child: const Text('OK'),
-            ),
-          ],
-        ),
+      print("hola");
+      return http.post(
+        Uri.parse('https://rstest2.montero.tk/'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(<String, String>{
+          'title': "hola",
+        }),
       );
     }
   }

@@ -32,6 +32,7 @@ dependencies:
   drop_down_search_field: ^1.0.0
   flutter:
     sdk: flutter
+  http: ^1.1.0
   shared_preferences: ^2.2.2
 
 dev_dependencies:
