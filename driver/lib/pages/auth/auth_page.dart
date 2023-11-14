@@ -28,9 +28,7 @@ class _AuthPageState extends State<AuthPage> {
     // ignore: use_build_context_synchronously
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(
-        builder: (context) => const Inicio(),
-      ),
+      MaterialPageRoute(builder: (context) => const Inicio()),
     );
   }
 

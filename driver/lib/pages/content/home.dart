@@ -1,7 +1,6 @@
 import 'package:employee/widgets/page_tittle.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/drawer.dart';
-import 'solicitar_conductor.dart';
 
 class Inicio extends StatelessWidget {
   const Inicio({super.key});
@@ -52,14 +51,37 @@ class Inicio extends StatelessWidget {
                             fontWeight: FontWeight.bold),
                       ),
                     ),
-                    const Text(
-                      "Puede viajar con amigos\no con conductores al azar",
-                      textAlign: TextAlign.center,
-                    ),
-                    Container(
-                        height: MediaQuery.of(context).size.height * 0.065,
-                        width: MediaQuery.of(context).size.width,
-                        child: SelectorTipoViaje())
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        const Text("Espacios disponibles:"),
+                        Container(
+                          height: MediaQuery.of(context).size.height * 0.075,
+                          width: MediaQuery.of(context).size.width * 0.2,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Theme.of(context).colorScheme.background,
+                            ),
+                            borderRadius: BorderRadius.circular(6),
+                            color: Theme.of(context)
+                                .colorScheme
+                                .secondaryContainer,
+                          ),
+                          child: TextField(
+                            //controller: passwordController,
+                            textAlign: TextAlign.center,
+                            decoration: InputDecoration(
+                              border: InputBorder.none,
+                              fillColor:
+                                  Theme.of(context).colorScheme.secondary,
+                              hintText: '0',
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ),
@@ -72,7 +94,7 @@ class Inicio extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () => SolicitarCarpool(context),
+                      onTap: () => {},
                       child: Container(
                         width: MediaQuery.of(context).size.width * 0.80,
                         height: MediaQuery.of(context).size.height * 0.15,
@@ -89,7 +111,7 @@ class Inicio extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                              "Solicitar\nCarpool",
+                              "Hacer un\nviaje",
                               style: TextStyle(
                                   fontSize:
                                       MediaQuery.of(context).size.height * 0.04,
@@ -116,51 +138,5 @@ class Inicio extends StatelessWidget {
         height: MediaQuery.of(context).size.height * 0.095,
       ),
     );
-  }
-
-  SolicitarCarpool(context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const SollicitarConductor(),
-      ),
-    );
-  }
-}
-
-class SelectorTipoViaje extends StatefulWidget {
-  const SelectorTipoViaje({super.key});
-
-  @override
-  State<SelectorTipoViaje> createState() => _SelectorTipoViajeState();
-}
-
-class _SelectorTipoViajeState extends State<SelectorTipoViaje> {
-  String tipoSeleccionado = "vconamigos";
-
-  @override
-  Widget build(BuildContext context) {
-    return SegmentedButton(
-        segments: const [
-          ButtonSegment(
-              value: "vconamigos",
-              label: Text("con amigos"),
-              icon: Icon(Icons.people)),
-          ButtonSegment(
-              value: "valazar",
-              label: Text("al azar"),
-              icon: Icon(Icons.car_rental))
-        ],
-        selected: {
-          tipoSeleccionado
-        },
-        onSelectionChanged: (Set newSelection) {
-          setState(() {
-            // By default there is only a single segment that can be
-            // selected at one time, so its value is always the first
-            // item in the selected set.
-            tipoSeleccionado = newSelection.first;
-          });
-        });
   }
 }
