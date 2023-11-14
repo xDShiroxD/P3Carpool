@@ -1,10 +1,26 @@
+import 'package:employee/widgets/Botones/seguir_viaje.dart';
 import 'package:employee/widgets/page_tittle.dart';
 import 'package:flutter/material.dart';
+import '../../widgets/Botones/solicitar_carpool.dart';
 import '../../widgets/drawer.dart';
 import 'solicitar_conductor.dart';
 
-class Inicio extends StatelessWidget {
+class Inicio extends StatefulWidget {
   const Inicio({super.key});
+
+  @override
+  State<Inicio> createState() => _InicioState();
+}
+
+late bool viajeEnProgreso;
+
+class _InicioState extends State<Inicio> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    viajeEnProgreso = false;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,51 +79,9 @@ class Inicio extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                height: MediaQuery.of(context).size.height * 0.2,
-                width: MediaQuery.of(context).size.width,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    GestureDetector(
-                      onTap: () => SolicitarCarpool(context),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.80,
-                        height: MediaQuery.of(context).size.height * 0.15,
-                        padding: EdgeInsets.symmetric(
-                            vertical:
-                                MediaQuery.of(context).size.height * 0.02),
-                        decoration: BoxDecoration(
-                          color: Color(0XFF312986),
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          mainAxisSize: MainAxisSize.max,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Solicitar\nCarpool",
-                              style: TextStyle(
-                                  fontSize:
-                                      MediaQuery.of(context).size.height * 0.04,
-                                  color:
-                                      Theme.of(context).colorScheme.background),
-                            ),
-                            Icon(
-                              Icons.arrow_forward_ios,
-                              size: MediaQuery.of(context).size.height * 0.08,
-                              color: Theme.of(context).colorScheme.background,
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              )
+              viajeEnProgreso
+                  ? SeguirViaje(home: this)
+                  : SolicitarCarpool(home: this),
             ],
           ),
         ),
@@ -118,13 +92,19 @@ class Inicio extends StatelessWidget {
     );
   }
 
-  SolicitarCarpool(context) {
+  nextPage(context) {
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => const SollicitarConductor(),
       ),
     );
+  }
+
+  viajeProgreso() {
+    setState(() {
+      viajeEnProgreso = !viajeEnProgreso;
+    });
   }
 }
 

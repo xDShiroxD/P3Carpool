@@ -16,7 +16,6 @@ late Color colorBotton;
 class _SollicitarConductorState extends State<SollicitarConductor> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     ready = false;
     colorBotton = Color.fromARGB(255, 122, 122, 130);
@@ -100,7 +99,6 @@ class _SollicitarConductorState extends State<SollicitarConductor> {
   }
 
   VerViaje(BuildContext context) {
-    print("Presionado");
     if (!ready) {
       setState(() {
         colorBotton = Color.fromARGB(255, 17, 17, 107);
